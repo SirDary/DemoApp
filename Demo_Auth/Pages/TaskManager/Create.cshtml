@@ -1,0 +1,33 @@
+﻿@page
+@model Demo_Auth.Pages.TaskManager.CreateModel
+@{
+}
+<form asp-page="Create" class="form-control">
+	<label asp-for="Input.TaskTitle" class="form-label"></label>
+	<div class="form-group mb-3">
+		<input asp-for="Input.TaskTitle" class="form-control" />
+		<span asp-validation-for="Input.TaskTitle" class="text-danger"></span>
+	</div>
+
+	<label asp-for="Input.Description" class="form-label"></label>
+	<div class="form-group mb-3">
+		<input asp-for="Input.Description" class="form-control" />
+		<span asp-validation-for="Input.Description" class="text-danger"></span>
+	</div>
+
+	<label asp-for="Input.Deadline" class="form-label"></label>
+	<div class="inp-group mb-3">
+		<input asp-for="Input.Deadline" class="form-control" />
+		<span asp-validation-for="Input.Deadline" class="text-danger"></span>
+	</div>
+
+	<label asp-for="Input.Executors" class="form-label"></label>
+	<div class="form-group mb-3">
+		<div class="input-group">
+			<select class="form-select" asp-for="Input.Executors" asp-items="Model.ExecuterList"></select>
+		</div>
+		<span asp-validation-for="Input.Executors" class="text-danger"></span>
+	</div>
+
+	<button class="btn btn-success">Создать</button>
+</form>
