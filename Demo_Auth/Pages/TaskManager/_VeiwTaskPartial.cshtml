@@ -1,0 +1,104 @@
+﻿@model IEnumerable<Tasks>
+@{
+}
+
+<a asp-page="/TaskManager/Index" asp-page-handler="MyClick" asp-route-i="1">
+    <div class="card mt-3 me-2" style="width:45%; min-width:fit-content">
+        <header class="card-header text-center">Задача</header>
+        <div class="card-body">
+            <h4 class="card-title text-center">TaskTitle</h4>
+
+            <label class="card-text">Автор</label>
+            <div class="cell">
+                <label class="ms-3">TaskAuthorNavigation.FullName</label>
+            </div>
+
+            <label class="card-text">Исполнители</label>
+            <div class="cell">
+                <label class="card-text ms-3">
+                    
+                </label>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label class="card-text">Дата создания</label>
+                    <div class="cell">
+                        <label class="card-text ms-3">DateOfCreate.ToString("dd.mm.yyyy hh:mm")</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <label class="card-text">Крайний срок</label>
+                    <div class="cell">
+                        <label class="card-text ms-3">Deadline.ToString("dd.mm.yyyy hh:mm")</label>
+                    </div>
+                </div>
+            </div>
+
+            <label class="card-text">Статус</label>
+            <div class="cell">
+                <label class="card-text ms-3">TasksStatus.TasksStatusName</label>
+            </div>
+        </div>
+    </div>
+</a>
+
+<div class="row">
+    @foreach (var task in Model)
+    {
+        
+        <div class="card mt-3 me-2" style="width:45%; min-width:fit-content">
+            <header class="card-header text-center">Задача</header>
+            <div class="card-body">
+                <h4 class="card-title text-center">@task.TaskTitle</h4>
+                
+                <label class="card-text">Автор</label>
+                <div class="cell">
+                    <label class="ms-3">@task.TaskAuthorNavigation.FullName</label>
+                </div>
+
+                <label class="card-text">Исполнители</label>
+                <div class="cell">
+                    <label class="card-text ms-3">
+                        @foreach (var ex in task.Executors)
+                        {
+                            <span class="card-text">@ex.FullName </span>
+                        }
+                    </label>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label class="card-text">Дата создания</label>
+                        <div class="cell">
+                            <label class="card-text ms-3">@task.DateOfCreate.ToString("dd.mm.yyyy hh:mm")</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label class="card-text">Крайний срок</label>
+                        <div class="cell">
+                            <label class="card-text ms-3">@task.Deadline.ToString("dd.mm.yyyy hh:mm")</label>
+                        </div>
+                    </div>
+                </div>
+
+                <label class="card-text">Статус</label>
+                <div class="cell">
+                    <label class="card-text ms-3">@task.TasksStatus.TasksStatusName</label>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+<style>
+    .cell{
+        background-color: #FFF0D3;
+        border-radius: 12px;
+    }
+    .card{
+        background-color: #FFDA96;
+        opacity: 60%;
+    }
+</style>

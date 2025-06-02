@@ -69,7 +69,7 @@ namespace Demo_Auth.Pages.TaskManager
         /// <returns>
         /// ExecuterList для отображения списка сотрудников в селекте
         /// </returns>
-        private ICollection<SelectListItem> FillSelectLict()
+        private List<SelectListItem> FillSelectLict()
         {
             ExecuterList.Clear();
             return _dbContext.Users
