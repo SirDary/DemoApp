@@ -1,6 +1,8 @@
 ﻿@page
 @model Demo.Pages.TaskManager.IndexModel
 @{
+    ViewData["Title"] = "Создание задачи";
+
 }
 <div class="row">
     <div class="col-md-4 text-center">
@@ -11,9 +13,9 @@
             <partial name="_VeiwTaskPartial" model="Model.OverdueTasks"/>
         </div>
     </div>
-
+    
     <div class="col-md-8 d-flex justify-content-center">
-        <div class="row">
+        <div class="row" style="max-height:max-content">
             <div class="nav justify-content-md-start">
                 <ul class="nav nav-pills border">
                     <li class="nav-item">
@@ -24,9 +26,6 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link">Мои</a>
-                    </li>
-                    <li class="nav-item">
-                        
                     </li>
                 </ul>
                 <a class="btn btn-outline-success" asp-page="/TaskManager/Create">Создать</a>
