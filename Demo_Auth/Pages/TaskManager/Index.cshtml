@@ -14,27 +14,49 @@
         </div>
     </div>
     
-    <div class="col-md-8 d-flex justify-content-center">
+    <div class="col-md-8 d-flex">
         <div class="row" style="max-height:max-content">
             <div class="nav justify-content-md-start">
-                <ul class="nav nav-pills border">
+                <ul class="nav nav-pills border border-2" style="width: fit-content; border-color: aquamarine; border-radius:5px">
                     <li class="nav-item">
-                        <a class="nav-link">Все</a>
+                        <button class="nav-link active" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all">Все</button>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link">Мне</a>
+                        <button class="nav-link" id="pills-me-tab" data-bs-toggle="pill" 
+                            data-bs-target="#pills-me" type="button" role="tab" 
+                            aria-controls="pills-me" >
+                            Мне
+                        </button>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link">Мои</a>
+                        <button class="nav-link" id="pills-my-tab" data-bs-toggle="pill" data-bs-target="#pills-my" type="button" role="tab" aria-controls="pills-my">Мои</button>
                     </li>
                 </ul>
                 <a class="btn btn-outline-success" asp-page="/TaskManager/Create">Создать</a>
             </div>
 
+            <div class="tab-content">
+                <div class="tab-pane active" id="pills-all" role="tabpanel">
+                    <partial name="_VeiwTaskPartial" model="Model.AllTasks" />
+                </div>
+
+                <div class="tab-pane" id="pills-me" role="tabpanel">
+                    <partial name="_VeiwTaskPartial" model="Model.MeTasks" />
+                </div>
+
+                <div class="tab-pane" id="pills-my" role="tabpanel">
+                    <partial name="_VeiwTaskPartial" model="Model.MyTasks" />
+                </div>
+            </div>
             
-            <partial name="_VeiwTaskPartial" model="Model.Tasks" />
+            
             
         </div>
+
+        
+
     </div>
 
 </div>
